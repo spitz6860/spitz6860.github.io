@@ -1,7 +1,139 @@
 <!DOCTYPE html>
 <html>
+
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="wheel.js"></script>
+
+
+<script type="text/javascript">
+
+var wheel = null;//new Wheel();
+
+	$(document).ready(function() {
+
+		
+		function makeChart(rows) {
+			rows = rows.map(function(x) { x.size = 10; return x; });
+			wheel = new Wheel({slices: rows});
+		}
+		
+		makeChart([
+			{ name: 'Casa Grullense' },
+			{ name: 'Caspian' },
+			{ name: 'Chipotle' },
+			{ name: 'Indian' },
+			{ name: 'Jimmy John\'s' },
+			{ name: 'Pump House' },
+			{ name: 'Red Robin' },
+			{ name: 'Sichuanese Cuisine' },
+			{ name: 'Subway' },
+			{ name: 'Tai Bong' },
+			{ name: 'Teriyaki' },
+			{ name: 'What the Pho' },
+			{ name: 'Wingdome' },
+		]);
+	});
+</script>
+
+
+<script type="text/javascript">
+	function pt(x,y) {
+		return {x: x, y: y};
+	}
+	function ptc(p) {
+		return {x: p.x, y: p.y};
+	}
+
+	$(document).ready(function() {
+
+		var w = $(window);
+		var canvas = $('.scribble-canvas');
+		var ctx = canvas[0].getContext("2d");
+		
+		ctx.drawBox = function(x,y, style, width) {
+			this.save();
+			this.beginPath();
+			this.rect(x - 3, y - 3, 6, 6);
+			if(!(width > 1)) width = 1; 
+			this.lineWidth = width;
+			this.closePath();
+			this.strokeStyle = style;
+			this.stroke();
+			this.restore();
+		}
+		
+// 		w.resize(function(){
+// 			canvas.attr({width: w.width(), height: w.height()});
+// 		});
+// 		w.trigger('resize');
+	// 	
+		window.requestAnimFrame = (function(){
+			return window.requestAnimationFrame	|| 
+				window.webkitRequestAnimationFrame	|| 
+				window.mozRequestAnimationFrame		|| 
+				window.oRequestAnimationFrame		|| 
+				window.msRequestAnimationFrame		|| 
+				function(callback){
+					window.setTimeout(callback, 1000 / 30);
+					};
+		})();
+				
+		function frame(info){
+			window.requestAnimFrame(frame);
+			draw(info);
+		}
+		
+		
+		var d = new Date();
+		var lastframe = d.getTime();
+		
+		frame();
+		
+		function draw(info) {
+			var d = new Date();
+			var now = d.getTime();
+			
+			// time elapsed (since last frame)
+			var te = (now - lastframe) / 1000.0;
+			lastframe = now;
+			
+			var w = ctx.canvas.width;
+			var h = ctx.canvas.height;
+			ctx.clearRect(0, 0, w, h);
+			
+			if(wheel) wheel.frameMove(te);
+			if(wheel) wheel.render(ctx);
+		}
+		
+
+		function distance(from, to) {
+			var x = to.x - from.x;
+			var y = to.y - from.y;
+			return Math.sqrt(x*x + y*y);
+		}
+		
+		$('.spin-button').click(function(e) {
+			e.preventDefault();
+			if(wheel) wheel.spin();
+		});
+	});
+
+
+</script>
+
+
 <body>
-<h1>Hello World</h1>
-<p>Please work please work please work.</p>
+
+<div id="content-header">
+    <h1>Where was lunch today?</h1>
+</div>
+
+
+<div id="canvascontainer">
+	<canvas width="720" height="700" class="scribble-canvas"></canvas>
+	<div id="spinbuttoncontainer">
+		<button class="spin-button">Spin!</button>
+	</div>
+</div>
 </body>
 </html>
