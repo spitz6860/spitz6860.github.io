@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script src="wheel.js"></script>
 
@@ -9,29 +9,76 @@
 
 var wheel = null;//new Wheel();
 
-	$(document).ready(function() {
+var options = [
+	{ name: 'Bellevue Brewing', location: 'office', fastfood: 'no' },
+	{ name: 'Caspian', location: 'office', fastfood: 'no' },
+	{ name: 'Chipotle', location: 'office', fastfood: 'yes' },
+	{ name: 'Flying Pies', location: 'home', fastfood: 'no' },
+	{ name: 'I Love Teriyaki', location: 'office', fastfood: 'no' },
+	{ name: 'Jak\'s Grill', location: 'office', fastfood: 'no' },	
+	{ name: 'KFC', location: 'home', fastfood: 'yes' },
+	{ name: 'Las Margaritas', location: 'home', fastfood: 'no' },
+	{ name: 'Make it yourself!', location: 'home', fastfood: 'no' },
+	{ name: 'Mandarin Garden', location: 'home', fastfood: 'no' },
+	{ name: 'McDonald\'s', location: 'all', fastfood: 'yes' },	
+	{ name: 'Noodle Boat', location: 'home', fastfood: 'no' },
+	{ name: 'Red Robin', location: 'office', fastfood: 'no' },
+	{ name: 'Sichuanese Cuisine', location: 'office', fastfood: 'no' },
+	{ name: 'Subway', location: 'all', fastfood: 'yes' },
+	{ name: 'Taco Bell', location: 'home', fastfood: 'yes' },
+	{ name: 'Taj Palace', location: 'office', fastfood: 'no' },
+	{ name: 'Tokyo Steakhouse', location: 'office', fastfood: 'no' },
+	{ name: 'What the Pho', location: 'office', fastfood: 'no' },
+];
 
-		
-		function makeChart(rows) {
+	$(document).ready(function() {
+			
+		function filterOptions() {
+
+			var location = 'home';
+			var hasFastfood = 'yes';
+
+			$('.btn-location button').each(function() {
+				if ($(this).hasClass('active')) {
+					location = $(this).val();
+				}
+			});
+
+			$('.btn-fastfood button').each(function() {
+				if ($(this).hasClass('active')) {
+					hasFastfood = $(this).val();
+				}
+			});		
+
+			var result = [];
+			$(options).each(function() {
+				if ((this.location === location || this.location === 'all') && !(hasFastfood === 'no' && this.fastfood == 'yes')) {
+
+					result.push({'name': this.name});
+				}
+			});
+			return result;
+		}
+
+		function makeChart() {
+			var rows = filterOptions();
 			rows = rows.map(function(x) { x.size = 10; return x; });
 			wheel = new Wheel({slices: rows});
 		}
-		
-		makeChart([
-			{ name: 'Casa Grullense' },
-			{ name: 'Caspian' },
-			{ name: 'Chipotle' },
-			{ name: 'Indian' },
-			{ name: 'Jimmy John\'s' },
-			{ name: 'Pump House' },
-			{ name: 'Red Robin' },
-			{ name: 'Sichuanese Cuisine' },
-			{ name: 'Subway' },
-			{ name: 'Tai Bong' },
-			{ name: 'Teriyaki' },
-			{ name: 'What the Pho' },
-			{ name: 'Wingdome' },
-		]);
+
+		$('#form-wheel .btn-group').each(function() {
+			var that = $(this);
+			$(this).find('button').each(function() {
+				$(this).click(function(e) {
+					e.preventDefault();
+					that.find('button').removeClass('active');
+					$(this).addClass('active');
+
+					makeChart();
+				})
+			});
+		});
+		makeChart();
 	});
 </script>
 
@@ -50,23 +97,6 @@ var wheel = null;//new Wheel();
 		var canvas = $('.scribble-canvas');
 		var ctx = canvas[0].getContext("2d");
 		
-		ctx.drawBox = function(x,y, style, width) {
-			this.save();
-			this.beginPath();
-			this.rect(x - 3, y - 3, 6, 6);
-			if(!(width > 1)) width = 1; 
-			this.lineWidth = width;
-			this.closePath();
-			this.strokeStyle = style;
-			this.stroke();
-			this.restore();
-		}
-		
-// 		w.resize(function(){
-// 			canvas.attr({width: w.width(), height: w.height()});
-// 		});
-// 		w.trigger('resize');
-	// 	
 		window.requestAnimFrame = (function(){
 			return window.requestAnimationFrame	|| 
 				window.webkitRequestAnimationFrame	|| 
@@ -124,16 +154,37 @@ var wheel = null;//new Wheel();
 
 <body>
 
-<div id="content-header">
-    <h1>Where was lunch today?</h1>
-</div>
-
-
-<div id="canvascontainer">
-	<canvas width="720" height="700" class="scribble-canvas"></canvas>
-	<div id="spinbuttoncontainer">
-		<button class="spin-button">Spin!</button>
+	<div id="content-header">
+		<h1>Meal Wheel</h1>
 	</div>
-</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<canvas width="900" height="900" class="scribble-canvas"></canvas>
+		</div>
+
+
+
+		<div class="col-md-4">
+			<form role="form" id="form-wheel">
+				<div class="form-group">
+					<h5>Where are you?</h5>
+					<div class="btn-group btn-location" role="group">
+						<button type="button" class="btn btn-default active" value="home">Home</button>
+						<button type="button" class="btn btn-default" value="office">Office</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<h5>Include Fast Food?</h5>
+					<div class="btn-group btn-fastfood" role="group">
+						<button type="button" class="btn btn-default active" value="yes">Sure</button>
+						<button type="button" class="btn btn-default" value="no">Nah</button>
+					</div>
+				</div>
+				<button class="btn btn-default spin-button">Spin to Win!</button>
+			</form>
+		</div>
+	</div>
+
 </body>
 </html>
