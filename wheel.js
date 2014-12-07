@@ -25,7 +25,8 @@ function Wheel(options) {
 			'red',
 			'yellow',
 			'green',
-			'blue'
+			'blue',
+			'purple'
 		],
 	};
 		
@@ -84,23 +85,24 @@ function Wheel(options) {
 			var rads = (this.slices[i].size * Math.PI * 2) / this.totalSize;
 			ctx.rotate(rads / 2);
 			
-			ctx.font = '20px Arial';
+			ctx.font = '20px Roboto Slab';
 			var metrics = ctx.measureText(this.slices[i].name);
 			var textwidth = metrics.width;
 			
 			if(textwidth > this.outsideRadius - this.insideRadius - 24)
-				ctx.font = '16px Arial';
+				ctx.font = '16px Roboto Slab';
 			
 			metrics = ctx.measureText(this.slices[i].name);
 			textwidth = metrics.width;
 			if(textwidth > this.outsideRadius - this.insideRadius - 24)
-				ctx.font = '12px Arial';
+				ctx.font = '12px Roboto Slab';
 			
-			
-			ctx.fillStyle = 'silver';
+			ctx.fillStyle = 'white';
+			ctx.strokeStyle = 'black';
 			var tx = this.insideRadius + 30;
 			var ty = 10;
-			ctx.fillText(this.slices[i].name, tx, ty);
+			ctx.strokeText('    ' + this.slices[i].name, tx, ty);
+			ctx.fillText('    ' + this.slices[i].name, tx, ty);
 			
 			ctx.rotate(rads / 2);
 		} 
@@ -116,7 +118,6 @@ function Wheel(options) {
 			ctx.lineTo(this.outsideRadius, 0);
 			ctx.closePath();
 			
-			ctx.lineWidth = 3;
 			ctx.strokeStyle = 'black';
 			ctx.stroke();
 			
@@ -176,7 +177,7 @@ function Wheel(options) {
 			if(this.angularVelocity < .001) {
 				this.angularVelocity = 0;
 				this.drag = 0;
-				this.settle();
+				//this.settle(); // can't decide if i want it to settle or not. 
 			}			
 			this.theta = cMod(this.theta + (this.angularVelocity * te));
 			this.angularVelocity -= this.drag * te;
