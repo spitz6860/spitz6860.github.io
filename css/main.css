@@ -4,7 +4,7 @@ body {
 }
 
 .container-header {
-    background-image: url('/img/banner_ds2');
+    background-image: url('../img/banner_ds2');
     width: 100%;
 }
 nav ul, footer ul {
