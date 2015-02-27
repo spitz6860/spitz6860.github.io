@@ -9,16 +9,17 @@
 		</head>
 		<body>
 			<div class="container">
-				<div class="container-header">
+			<nav class="navbar navbar-default navbar-fixed-top" id="mynavbar" role="navigation">
+				<div class="collapse navbar-collapse" id="navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/"><span>Home</span></a></li>
+						<li><a href="/wheel"><span>Food</span></a></li>
+						<li><a href="/"><span></span>Resume</a></li>
+						<li><a href="/"><span></span>PlaceHolder</a></li>
+					</ul>
 				</div>
-				<nav>
-		    		<ul>
-		        		<li><a href="/">Home</a></li>
-			        	<li><a href="/wheel">Wheel</a></li>
-		        		<li><a href="/Resume">CV</a></li>
-		        		<li><a href="/blog">Blog</a></li>
-		    		</ul>
-				</nav>
+			</div>
+		</nav>
 				<div class="container-content">
 				
 				{{ content }}
