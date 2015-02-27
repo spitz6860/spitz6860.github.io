@@ -1,0 +1,9 @@
+.container-body {
+    background-image: url('../image/background_main_1.jpg'); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
