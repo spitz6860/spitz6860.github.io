@@ -1,5 +1,5 @@
 .container-content {
-    background-image: url('../image/background_main_1.jpg'); 
+    background-image: url('../image/background_main.jpg'); 
     background-repeat: no-repeat;
     background-size: 100%;
     display: block;
@@ -9,6 +9,6 @@
     width: 100%;
 }
 
-.nav-bar {
+.navbar {
     margin-bottom: 0px !important;
 }
