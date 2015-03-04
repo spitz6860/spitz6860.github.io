@@ -9,6 +9,7 @@
     width: 100%;
 }
 
-.navbar {
+#mynavbar {
+    background-color: #FFFFF0;
     margin-bottom: 0px !important;
 }
