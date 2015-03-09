@@ -1,8 +1,9 @@
 .navbar {
     background-color: #FFFFF0;
+    margin-bottom: 0px !important;
 }
 
-.navbar .nav {
+.navbar .nav span{
     font-size: 14pt;
     color: #112C55;
 }
