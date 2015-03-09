@@ -16,7 +16,7 @@
     margin-bottom: 0px !important;
 }
 
-.container-content .container-content {
-    color: white;
+.container-content .container-column {
+    background-color: #FFFFF0;
     font-size: 16em;
 }
