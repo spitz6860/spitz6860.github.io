@@ -1,8 +1,12 @@
 .navbar {
     background-color: #FFFFF0;
+}
+
+.navbar .nav {
     font-size: 16pt;
     color: 112C55;
 }
+
 .container-main {
     background-image: url('../image/background_main.jpg'); 
     background-repeat: no-repeat;
