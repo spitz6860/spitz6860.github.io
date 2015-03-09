@@ -1,6 +1,6 @@
 var Wheel = function(options) {
 	var config, cMod, pt, ptc, reder, frameMove, settle, spin, init;
-	console.log(options);
+
 	pt = function(x,y) {
 		return {x: x, y: y};
 	};
@@ -25,7 +25,7 @@ var Wheel = function(options) {
 		
 		slices: options.slices || [],
 		
-		totalSize: options.slices.length || 1,
+		totalSize: 1,
 		
 		colors: [
 			'red',
@@ -35,7 +35,7 @@ var Wheel = function(options) {
 			'purple'
 		],
 	};
-	
+
 	render = function(ctx) {
 		var maxw = ctx.canvas.width;
 		
@@ -236,5 +236,6 @@ var Wheel = function(options) {
 		config.totalSize = config.slices.reduce(function(acc, q) { return acc + q.size; }, 0);
 			
 	}
+	init();
 	return {frameMove: frameMove, init: init, render: render, settle: settle, spin: spin};
 };
