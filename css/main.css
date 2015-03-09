@@ -3,8 +3,8 @@
 }
 
 .navbar .nav {
-    font-size: 16pt;
-    color: 112C55;
+    font-size: 14pt;
+    color: 112C55 !important;
 }
 
 .container-main {
