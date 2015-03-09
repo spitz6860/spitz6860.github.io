@@ -3,9 +3,17 @@ function cMod(theta) {
 	return theta % (Math.PI * 2);
 }
 
-function Wheel(options) {
+var Wheel = (function(options) {
+	var config, pt, ptc, reder, frameMove, settle, spin, init;
 	
-	var defaults = {
+	pt = function(x,y) {
+		return {x: x, y: y};
+	}
+	ptc = function (p) {
+		return {x: p.x, y: p.y};
+	}
+
+	var config = {
 		insideRadius: 35,
 		outsideRadius: 300,
 		position: pt(330,330),
@@ -30,12 +38,11 @@ function Wheel(options) {
 		],
 	};
 		
-	var e = $.extend({}, defaults, options);
+	var e = $.extend({}, config, options);
 	for(x in e) this[x] = e[x];
 	
-	
-	
-	this.render = function(ctx) {
+
+	render = function(ctx) {
 		var maxw = ctx.canvas.width;
 		
 		var cx, xy;
@@ -171,7 +178,7 @@ function Wheel(options) {
 	};
 	
 	
-	this.frameMove = function(te) {
+	frameMove = function(te) {
 		
 		if(this.spinning) {
 			if(this.angularVelocity < .001) {
@@ -198,7 +205,7 @@ function Wheel(options) {
 		
 	};
 	
-	this.settle = function() {
+	settle = function() {
 		this.settling = true;
 		this.spinning = false;
 		this.final_theta = this.theta;
@@ -219,7 +226,7 @@ function Wheel(options) {
 		this.drag = 0;
 	}
 	
-	this.spin = function() {
+	spin = function() {
 		if(this.angularVelocity > 0.001) return;
 		
 		this.settling = false;
@@ -229,13 +236,10 @@ function Wheel(options) {
 		this.angularVelocity =  6 + Math.random() * 1;
 	}
 	
-	this.init = function() {
+	init = function() {
 		
 		this.totalSize = this.slices.reduce(function(acc, q) { return acc + q.size; }, 0);
 			
 	}
-	
-	this.init();
-	
-	
-}
+	return {frameMove: frameMove, init: init, render: render, settle: settle, spin: spin};
+})();
