@@ -1,6 +1,7 @@
 .navbar {
     background-color: #FFFFF0;
-    font-size: 18pt;
+    font-size: 16pt;
+    color: 112C55;
 }
 .container-main {
     background-image: url('../image/background_main.jpg'); 
