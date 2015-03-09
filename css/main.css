@@ -1,4 +1,8 @@
-.container-content {
+.navbar {
+    background-color: #FFFFF0;
+    font-size: 18pt;
+}
+.container-main {
     background-image: url('../image/background_main.jpg'); 
     background-repeat: no-repeat;
     background-size: 100%;
@@ -16,7 +20,7 @@
     margin-bottom: 0px !important;
 }
 
-.container-content .container-column {
+.container-content {
     background-color: #FFFFF0;
     font-size: 16pt;
 }
