@@ -2,92 +2,98 @@
 layout: default
 title: Spitz - Wheel
 ---
-
+<script src="../js/jquery-2.1.3.min.js"></script>
 <script src="./wheel.js"></script>
-
+			
 <script type="text/javascript">
 
 		
-		var wheel = (function() {
+	var wheel = (function() {
 
-			var options = [
-				{ name: 'Bellevue Brewing', location: 'office', fastfood: 'no' },
-				{ name: 'Caspian', location: 'office', fastfood: 'no' },
-				{ name: 'Chipotle', location: 'office', fastfood: 'yes' },
-				{ name: 'Flying Pies', location: 'home', fastfood: 'no' },
-				{ name: 'I Love Teriyaki', location: 'office', fastfood: 'no' },
-				{ name: 'Jak\'s Grill', location: 'office', fastfood: 'no' },	
-				{ name: 'KFC', location: 'home', fastfood: 'yes' },
-				{ name: 'Las Margaritas', location: 'home', fastfood: 'no' },
-				{ name: 'Make it yourself!', location: 'home', fastfood: 'no' },
-				{ name: 'Mandarin Garden', location: 'home', fastfood: 'no' },
-				{ name: 'McDonald\'s', location: 'all', fastfood: 'yes' },	
-				{ name: 'Noodle Boat', location: 'home', fastfood: 'no' },
-				{ name: 'Red Robin', location: 'office', fastfood: 'no' },
-				{ name: 'Sichuanese Cuisine', location: 'office', fastfood: 'no' },
-				{ name: 'Subway', location: 'all', fastfood: 'yes' },
-				{ name: 'Taco Bell', location: 'home', fastfood: 'yes' },
-				{ name: 'Taj Palace', location: 'office', fastfood: 'no' },
-				{ name: 'Tokyo Steakhouse', location: 'office', fastfood: 'no' },
-				{ name: 'What the Pho', location: 'office', fastfood: 'no' },
-			];
+		var options = [
+			{ name: 'Bellevue Brewing', location: 'office', fastfood: 'no' },
+			{ name: 'Caspian', location: 'office', fastfood: 'no' },
+			{ name: 'Chipotle', location: 'office', fastfood: 'yes' },
+			{ name: 'Flying Pies', location: 'home', fastfood: 'no' },
+			{ name: 'I Love Teriyaki', location: 'office', fastfood: 'no' },
+			{ name: 'Jak\'s Grill', location: 'office', fastfood: 'no' },	
+			{ name: 'KFC', location: 'home', fastfood: 'yes' },
+			{ name: 'Las Margaritas', location: 'home', fastfood: 'no' },
+			{ name: 'Make it yourself!', location: 'home', fastfood: 'no' },
+			{ name: 'Mandarin Garden', location: 'home', fastfood: 'no' },
+			{ name: 'McDonald\'s', location: 'all', fastfood: 'yes' },	
+			{ name: 'Noodle Boat', location: 'home', fastfood: 'no' },
+			{ name: 'Red Robin', location: 'office', fastfood: 'no' },
+			{ name: 'Sichuanese Cuisine', location: 'office', fastfood: 'no' },
+			{ name: 'Subway', location: 'all', fastfood: 'yes' },
+			{ name: 'Taco Bell', location: 'home', fastfood: 'yes' },
+			{ name: 'Taj Palace', location: 'office', fastfood: 'no' },
+			{ name: 'Tokyo Steakhouse', location: 'office', fastfood: 'no' },
+			{ name: 'What the Pho', location: 'office', fastfood: 'no' },
+		];
 
-			var filterOptions = function()  {
+		var filterOptions = function()  {
 
-				var location = 'home';
-				var hasFastfood = 'yes';
+			var location = 'home';
+			var hasFastfood = 'yes';
 
-				$('.btn-location button').each(function() {
-					if ($(this).hasClass('active')) {
-						location = $(this).val();
-					}
-				});
+			$('.btn-location button').each(function() {
+				if ($(this).hasClass('active')) {
+					location = $(this).val();
+				}
+			});
 
-				$('.btn-fastfood button').each(function() {
-					if ($(this).hasClass('active')) {
-						hasFastfood = $(this).val();
-					}
-				});		
+			$('.btn-fastfood button').each(function() {
+				if ($(this).hasClass('active')) {
+					hasFastfood = $(this).val();
+				}
+			});		
 
-				var result = [];
-				$(options).each(function() {
-					if ((this.location === location || this.location === 'all') && !(hasFastfood === 'no' && this.fastfood == 'yes')) {
+			var result = [];
+			$(options).each(function() {
+				if ((this.location === location || this.location === 'all') && !(hasFastfood === 'no' && this.fastfood == 'yes')) {
 
-						result.push({'name': this.name});
-					}
-				});
-				return result;
-			};
+					result.push({'name': this.name});
+				}
+			});
+			return result;
+		};
 
-			var makeChart = function() {
-				var rows = filterOptions();
-				rows = rows.map(function(x) { x.size = 10; return x; });
-				wheel = new Wheel({slices: rows});
-			};
-		});
+		var makeChart = function() {
+			var rows = filterOptions();
+			rows = rows.map(function(x) { x.size = 10; return x; });
+			wheel = new Wheel({slices: rows});
+		};
 
+		var init = function () {
+			$('#form-wheel .btn-group').each(function() {
+				var that = $(this);
+				$(this).find('button').each(function() {
+					$(this).click(function(e) {
+						e.preventDefault();
+						that.find('button').removeClass('active');
+						$(this).addClass('active');
 
-		$('#form-wheel .btn-group').each(function() {
-			var that = $(this);
-			$(this).find('button').each(function() {
-				$(this).click(function(e) {
-					e.preventDefault();
-					that.find('button').removeClass('active');
-					$(this).addClass('active');
-
-					wheel.makeChart();
+						makeChart();
+					});
 				});
 			});
-		});
 
-		wheel.makeChart();
+			makeChart();				
+		}
+		return {init: init, filterOptions: filterOptions, makeChart: makeChart};
+	})();
+
+	$(document).ready(function() {
+		wheel.init();
+	});
+
 </script>
 
 
 <script type="text/javascript">
 
 	$(document).ready(function() {
-
 		var w = $(window);
 		var canvas = $('.scribble-canvas');
 		var ctx = canvas[0].getContext("2d");

@@ -1,17 +1,16 @@
-
-function cMod(theta) {
-	return theta % (Math.PI * 2);
-}
-
-var Wheel = (function(options) {
-	var config, pt, ptc, reder, frameMove, settle, spin, init;
-	
+var Wheel = function(options) {
+	var config, cMod, pt, ptc, reder, frameMove, settle, spin, init;
+	console.log(options);
 	pt = function(x,y) {
 		return {x: x, y: y};
-	}
+	};
 	ptc = function (p) {
 		return {x: p.x, y: p.y};
-	}
+	};
+
+	cMod = function(theta) {
+		return theta % (Math.PI * 2);
+	};
 
 	var config = {
 		insideRadius: 35,
@@ -24,10 +23,9 @@ var Wheel = (function(options) {
 		spinning: true,
 		settling: false,
 		
-		slices: [
-		],
+		slices: options.slices || [],
 		
-		totalSize: 1,
+		totalSize: options.slices.length || 1,
 		
 		colors: [
 			'red',
@@ -37,11 +35,7 @@ var Wheel = (function(options) {
 			'purple'
 		],
 	};
-		
-	var e = $.extend({}, config, options);
-	for(x in e) this[x] = e[x];
 	
-
 	render = function(ctx) {
 		var maxw = ctx.canvas.width;
 		
@@ -50,13 +44,13 @@ var Wheel = (function(options) {
 		ctx.save();
 		
 		
-		ctx.translate(this.position.x, this.position.y);
+		ctx.translate(config.position.x, config.position.y);
 		
 		// draw the circle underneath
 		
 		ctx.save();
 		
-		ctx.rotate(this.theta);
+		ctx.rotate(config.theta);
 		//ctx.rotate(0);
 		
 		
@@ -64,13 +58,14 @@ var Wheel = (function(options) {
 		
 
 		// fill interior of circle 
-		for(var i = 0; i < this.slices.length; i++) {
-			var rads = (this.slices[i].size * Math.PI * 2) / this.totalSize;
+
+		for(var i = 0; i < config.slices.length; i++) {
+			var rads = (config.slices[i].size * Math.PI * 2) / config.totalSize;
 			ctx.beginPath();
-			ctx.moveTo(this.insideRadius, 0);
-			ctx.arc(0, 0,  this.insideRadius, curAngle, curAngle + rads, false);
-			ctx.lineTo(Math.cos(curAngle + rads) * this.outsideRadius, Math.sin(curAngle + rads) * this.outsideRadius);
-			ctx.arc(0, 0,  this.outsideRadius, curAngle + rads, curAngle, true);
+			ctx.moveTo(config.insideRadius, 0);
+			ctx.arc(0, 0,  config.insideRadius, curAngle, curAngle + rads, false);
+			ctx.lineTo(Math.cos(curAngle + rads) * config.outsideRadius, Math.sin(curAngle + rads) * config.outsideRadius);
+			ctx.arc(0, 0,  config.outsideRadius, curAngle + rads, curAngle, true);
 
 		
 			
@@ -78,7 +73,7 @@ var Wheel = (function(options) {
 			
 			ctx.lineWidth = 3;
 			
-			ctx.fillStyle = this.colors[i % this.colors.length];
+			ctx.fillStyle = config.colors[i % config.colors.length];
 			ctx.fill();
 			
 			curAngle = 0
@@ -88,28 +83,28 @@ var Wheel = (function(options) {
 
 		ctx.save();
 		// draw text
-		for(var i = 0; i < this.slices.length; i++) {
-			var rads = (this.slices[i].size * Math.PI * 2) / this.totalSize;
+		for(var i = 0; i < config.slices.length; i++) {
+			var rads = (config.slices[i].size * Math.PI * 2) / config.totalSize;
 			ctx.rotate(rads / 2);
 			
 			ctx.font = '20px Roboto Slab';
-			var metrics = ctx.measureText(this.slices[i].name);
+			var metrics = ctx.measureText(config.slices[i].name);
 			var textwidth = metrics.width;
 			
-			if(textwidth > this.outsideRadius - this.insideRadius - 24)
+			if(textwidth > config.outsideRadius - config.insideRadius - 24)
 				ctx.font = '16px Roboto Slab';
 			
-			metrics = ctx.measureText(this.slices[i].name);
+			metrics = ctx.measureText(config.slices[i].name);
 			textwidth = metrics.width;
-			if(textwidth > this.outsideRadius - this.insideRadius - 24)
+			if(textwidth > config.outsideRadius - config.insideRadius - 24)
 				ctx.font = '12px Roboto Slab';
 			
 			ctx.fillStyle = 'white';
 			ctx.strokeStyle = 'black';
-			var tx = this.insideRadius + 30;
+			var tx = config.insideRadius + 30;
 			var ty = 10;
-			ctx.strokeText('    ' + this.slices[i].name, tx, ty);
-			ctx.fillText('    ' + this.slices[i].name, tx, ty);
+			ctx.strokeText('    ' + config.slices[i].name, tx, ty);
+			ctx.fillText('    ' + config.slices[i].name, tx, ty);
 			
 			ctx.rotate(rads / 2);
 		} 
@@ -118,11 +113,11 @@ var Wheel = (function(options) {
 
 		// draw interior lines
 		ctx.save();
-		for(var i = 0; i < this.slices.length; i++) {
-			var rads = (this.slices[i].size * Math.PI * 2) / this.totalSize;
+		for(var i = 0; i < config.slices.length; i++) {
+			var rads = (config.slices[i].size * Math.PI * 2) / config.totalSize;
 			ctx.beginPath();
-			ctx.moveTo(this.insideRadius, 0);
-			ctx.lineTo(this.outsideRadius, 0);
+			ctx.moveTo(config.insideRadius, 0);
+			ctx.lineTo(config.outsideRadius, 0);
 			ctx.closePath();
 			
 			ctx.strokeStyle = 'black';
@@ -137,13 +132,13 @@ var Wheel = (function(options) {
 		
 		ctx.beginPath();
 		ctx.lineWidth = 10;
-		ctx.arc(0, 0,  this.insideRadius, 0, Math.PI * 2, false);
+		ctx.arc(0, 0,  config.insideRadius, 0, Math.PI * 2, false);
 		ctx.strokeStyle = 'black';
 		ctx.stroke();
 		
 		ctx.beginPath();
 		ctx.lineWidth = 20;
-		ctx.arc(0, 0,  this.outsideRadius, 0, Math.PI * 2, false);
+		ctx.arc(0, 0,  config.outsideRadius, 0, Math.PI * 2, false);
 		ctx.strokeStyle = 'black';
 		ctx.stroke();
 		
@@ -156,12 +151,12 @@ var Wheel = (function(options) {
 		ctx.translate(10, 0);
 		ctx.beginPath();
 		
-		var out = (this.outsideRadius * .05);
+		var out = (config.outsideRadius * .05);
 		var up = out * 2;
-		ctx.moveTo(this.outsideRadius + out, -up);
-		ctx.lineTo(this.outsideRadius + out, up);
-		ctx.lineTo(this.outsideRadius - up - up, 0);
-		ctx.lineTo(this.outsideRadius + out, -up);
+		ctx.moveTo(config.outsideRadius + out, -up);
+		ctx.lineTo(config.outsideRadius + out, up);
+		ctx.lineTo(config.outsideRadius - up - up, 0);
+		ctx.lineTo(config.outsideRadius + out, -up);
 			
 		ctx.closePath();
 		
@@ -180,24 +175,24 @@ var Wheel = (function(options) {
 	
 	frameMove = function(te) {
 		
-		if(this.spinning) {
-			if(this.angularVelocity < .001) {
-				this.angularVelocity = 0;
-				this.drag = 0;
-				//this.settle(); // can't decide if i want it to settle or not. 
+		if(config.spinning) {
+			if(config.angularVelocity < .001) {
+				config.angularVelocity = 0;
+				config.drag = 0;
+				//config.settle(); // can't decide if i want it to settle or not. 
 			}			
-			this.theta = cMod(this.theta + (this.angularVelocity * te));
-			this.angularVelocity -= this.drag * te;
-			this.angularVelocity = Math.max(0, this.angularVelocity);
+			config.theta = cMod(config.theta + (config.angularVelocity * te));
+			config.angularVelocity -= config.drag * te;
+			config.angularVelocity = Math.max(0, config.angularVelocity);
 
 		}
 		
-		if(this.settling) {
-			var dt = this.theta - this.target_theta;
-			this.theta -= dt * te * .6;
-			if(Math.abs(this.target_theta - this.theta) < .001) {
-				this.theta = this.target_theta;
-				this.settling = false;
+		if(config.settling) {
+			var dt = config.theta - config.target_theta;
+			config.theta -= dt * te * .6;
+			if(Math.abs(config.target_theta - config.theta) < .001) {
+				config.theta = config.target_theta;
+				config.settling = false;
 			}
 			
 		}
@@ -206,40 +201,40 @@ var Wheel = (function(options) {
 	};
 	
 	settle = function() {
-		this.settling = true;
-		this.spinning = false;
-		this.final_theta = this.theta;
+		config.settling = true;
+		config.spinning = false;
+		config.final_theta = config.theta;
 		
 		// figure out which item it's in
-		this.target_theta = 0;
+		config.target_theta = 0;
 		var qqq = 0;
-		for(var i =  this.slices.length -1; i >= 0; i--) {
-			var rads = (this.slices[i].size * Math.PI * 2) / this.totalSize;
-			if(qqq < this.final_theta && (qqq + rads) > this.final_theta) {
-				this.target_theta = qqq + (rads / 2);
+		for(var i =  config.slices.length -1; i >= 0; i--) {
+			var rads = (config.slices[i].size * Math.PI * 2) / config.totalSize;
+			if(qqq < config.final_theta && (qqq + rads) > config.final_theta) {
+				config.target_theta = qqq + (rads / 2);
 				break;
 			}
 			qqq += rads;
 		};
 		
-		this.angularVelocity = 0;
-		this.drag = 0;
+		config.angularVelocity = 0;
+		config.drag = 0;
 	}
 	
 	spin = function() {
-		if(this.angularVelocity > 0.001) return;
+		if(config.angularVelocity > 0.001) return;
 		
-		this.settling = false;
-		this.spinning = true;
+		config.settling = false;
+		config.spinning = true;
 		
-		this.drag = 1 +  Math.random() * .2;
-		this.angularVelocity =  6 + Math.random() * 1;
+		config.drag = 1 +  Math.random() * .2;
+		config.angularVelocity =  6 + Math.random() * 1;
 	}
 	
 	init = function() {
 		
-		this.totalSize = this.slices.reduce(function(acc, q) { return acc + q.size; }, 0);
+		config.totalSize = config.slices.reduce(function(acc, q) { return acc + q.size; }, 0);
 			
 	}
 	return {frameMove: frameMove, init: init, render: render, settle: settle, spin: spin};
-})();
+};
