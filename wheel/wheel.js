@@ -1,17 +1,6 @@
 var Wheel = function(options) {
 	var config, cMod, pt, ptc, reder, frameMove, settle, spin, init;
 
-	pt = function(x,y) {
-		return {x: x, y: y};
-	};
-	ptc = function (p) {
-		return {x: p.x, y: p.y};
-	};
-
-	cMod = function(theta) {
-		return theta % (Math.PI * 2);
-	};
-
 	var config = {
 		insideRadius: 35,
 		outsideRadius: 300,
@@ -34,6 +23,17 @@ var Wheel = function(options) {
 			'blue',
 			'purple'
 		],
+	};
+
+	function pt(x,y) {
+		return {x: x, y: y};
+	};
+	function ptc(p) {
+		return {x: p.x, y: p.y};
+	};
+
+	function cMod(theta) {
+		return theta % (Math.PI * 2);
 	};
 
 	render = function(ctx) {
