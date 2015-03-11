@@ -1,5 +1,5 @@
 var Wheel = function(options) {
-	var config, cMod, pt, ptc, reder, frameMove, settle, spin, init;
+	var config, reder, frameMove, settle, spin, init;
 
 	var config = {
 		insideRadius: 35,
