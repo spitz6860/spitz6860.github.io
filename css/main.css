@@ -1,3 +1,8 @@
+.title {
+    color: #112C55;
+    font-family: cursive;
+    font-size: 35px;
+}
 .navbar {
     background-color: #FFFFF0;
     margin-bottom: 0px !important;
@@ -22,6 +27,37 @@
 }
 
 .container-content {
-    background-color: #FFFFF0;
+    color: #FFFFF0;
     font-size: 16pt;
+}
+
+.container-content .signature {
+    display: inline;
+    font-family: "Comic Sans", "Comic Sans MS", cursive;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.about-me {
+    margin-top: 50px;
+    min-width: 450px;
+    width: 450px;
+}
+
+.my-picture {
+    background: url(../image/my_picture.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+}
+
+.interests {
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    margin-top: 50px;
 }
