@@ -41,7 +41,7 @@
 .about-me {
     margin-top: 50px;
     min-width: 450px;
-    width: 450px;
+    width: 450px !important;
 }
 
 .my-picture {
