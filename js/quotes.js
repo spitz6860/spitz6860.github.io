@@ -11,7 +11,7 @@
 			source: 'Warren Buffet'
 		},
 		{
-			text: 'The best way to live life a full life is to be a child, no matter what your age.',
+			text: 'The best way to live a full life is to be a child, no matter what your age.',
 			source: 'Gintama'
 		}
 	];
