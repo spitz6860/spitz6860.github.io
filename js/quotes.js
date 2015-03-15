@@ -15,7 +15,7 @@
 			source: 'Gintama'
 		},
 		{
-			text: "If you have time to think of a beautiful ending, why not use the time to live beautifully until the end."
+			text: "If you have time to think of a beautiful ending, why not use the time to live beautifully until the end.",
 			source: 'Gintama'
 		}
 	];
