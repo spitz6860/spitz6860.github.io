@@ -61,3 +61,18 @@
     font-weight: bold;
     margin-top: 50px;
 }
+
+.quotes {
+    bottom: 35px;
+    background-color: rgba(192, 192, 192, 0.2);
+    left: 20%;
+    right: 20%;
+    padding: 10px 20px 10px 20px;
+    position: absolute;
+}
+
+.quotes .text,.source {
+    color: #FFFFF0;
+    font-family: 'Comic Sans MS';
+    font-style: italic;
+}
