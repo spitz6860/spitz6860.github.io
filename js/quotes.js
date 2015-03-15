@@ -13,6 +13,10 @@
 		{
 			text: 'The best way to live a full life is to be a child, no matter what your age.',
 			source: 'Gintama'
+		},
+		{
+			text: "If you have time to think of a beautiful ending, why not use the time to live beautifully until the end."
+			source: 'Gintama'
 		}
 	];
 
