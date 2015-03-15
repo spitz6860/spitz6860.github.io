@@ -11,7 +11,8 @@
 			source: 'Warren Buffet'
 		},
 		{
-			text: 'Something something, you suck'
+			text: 'The best way to live life a full life is to be a child, no matter what your age.',
+			source: 'Gintama'
 		}
 	];
 
