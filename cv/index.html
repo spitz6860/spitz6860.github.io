@@ -1,0 +1,42 @@
+---
+layout: default
+title: Spitz - Home Page
+---
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$('.dropdown-menu li').click(function() {
+
+			$(this).closest('.btn-group')
+			.find('[data-bind="label"]').text($(this).text())
+			.end()
+			.children('.dropdown-toggle').dropdown('toggle');						
+		});
+
+		$('.btn-resume').click(function() {
+			var extension = $(this).closest('.btn-group')
+			.find('[data-bind="label"]').text();
+
+			window.location.href = "../doc/resume_kw" + extension;
+		});
+
+	});
+</script>
+
+
+<div class="container-content">
+	<div class="btn-group" role="group" aria-label="...">
+		<button type="button" class="btn btn-lg btn-default btn-resume">Download Resume</button>
+		<div class="btn-group btn-input clearfix">
+			<button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown">
+				<span data-bind="label">.pdf</span> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">.pdf</a></li>
+				<li><a href="#">.docx</a></li>
+				<li><a href="#">.txt</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

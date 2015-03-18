@@ -21,7 +21,7 @@
 	];
 
 	function randomQuote(quotes) {
-		var index =  Math.round(Math.random() * (quotes.length - 1));
+		var index = Math.round(Math.random() * (quotes.length - 1));
 		return quotes[index];
 	}
 
