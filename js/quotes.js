@@ -39,7 +39,7 @@
 			source: "Thomas Edison"
 		},
 		{
-			text: "Life is like riding a bicycle. To keep your balance, you must keep moving."
+			text: "Life is like riding a bicycle. To keep your balance, you must keep moving.",
 			source: "Albert Einstein"
 		},
 		{
