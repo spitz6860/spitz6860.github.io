@@ -1,4 +1,3 @@
-/*<--Menu*/
 .container-body {
     background-image: url('../image/background_main.jpg'); 
     background-repeat: no-repeat;
@@ -8,6 +7,14 @@
     height: 100%;
     width: 100%;
 }
+
+.container-main {
+    height: 100%;
+    padding: 100px 10% 100px 10%;
+    width: 100%;
+}
+
+/*<--Menu*/
 .title {
     color: #112C55;
     font-family: cursive;
@@ -22,14 +29,6 @@
     font-size: 14pt;
     color: #112C55;
 }
-
-.container-main {
-
-    height: 100%;
-    padding: 100px 10% 100px 10%;
-    width: 100%;
-}
-
 /*Menu-->*/
 
 /*<--Quotes Section*/
