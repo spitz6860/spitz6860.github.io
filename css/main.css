@@ -1,5 +1,8 @@
 /*<--Menu*/
-
+body {
+    height: 100%;
+    width: 100%;
+}
 .title {
     color: #112C55;
     font-family: cursive;
