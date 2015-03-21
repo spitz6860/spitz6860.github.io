@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     min-width: 600px;
-    min-height: 800px;
+    min-height: 900px;
     height: 100%;
     width: 100%;
 }
@@ -27,7 +27,6 @@
 
     height: 100%;
     padding: 100px 10% 100px 10%;
-    position: fixed;
     width: 100%;
 }
 
@@ -35,10 +34,10 @@
 
 /*<--Quotes Section*/
 .quotes {
-    bottom: 35px;
     background-color: rgba(192, 192, 192, 0.2);
+    overflow: auto;
+    margin-top: 200px;
     padding: 10px 20px 10px 20px;
-    position: absolute !important;
 }
 
 .quotes .text,.source {
