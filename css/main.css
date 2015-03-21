@@ -1,5 +1,10 @@
 /*<--Menu*/
-body {
+.container-body {
+    background-image: url('../image/background_main.jpg'); 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-width: 600px;
+    min-height: 800px;
     height: 100%;
     width: 100%;
 }
@@ -19,12 +24,10 @@ body {
 }
 
 .container-main {
-    background-image: url('../image/background_main.jpg'); 
-    background-repeat: no-repeat;
-    background-size: 100%;
+
     height: 100%;
     padding: 100px 10% 100px 10%;
-    position: absolute;
+    position: fixed;
     width: 100%;
 }
 
