@@ -1,3 +1,4 @@
+/*<--Global*/
 .container-body {
     background-image: url('../image/background_main.jpg'); 
     background-repeat: no-repeat;
@@ -13,6 +14,24 @@
     padding: 100px 10% 100px 10%;
     width: 100%;
 }
+
+.container-content {
+    color: #FFFFF0;
+    font-size: 16pt;
+    min-height: 600px;
+}
+
+.container-content .signature {
+    display: inline;
+    font-family: "Comic Sans", "Comic Sans MS", cursive;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.container-content .btn {
+    color: #112C55;
+}
+/*Global-->*/
 
 /*<--Menu*/
 .title {
@@ -47,22 +66,6 @@
 /*Quotes Section-->*/
 
 /*<--Home Page*/
-.container-content {
-    color: #FFFFF0;
-    font-size: 16pt;
-}
-
-.container-content .signature {
-    display: inline;
-    font-family: "Comic Sans", "Comic Sans MS", cursive;
-    font-size: 60px;
-    font-weight: bold;
-}
-
-.container-content .btn {
-    color: #112C55;
-}
-
 .about-me {
     margin-top: 50px;
     min-width: 450px;
