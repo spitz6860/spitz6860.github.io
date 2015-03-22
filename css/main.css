@@ -11,7 +11,7 @@
 
 .container-main {
     height: 100%;
-    padding: 100px 10% 100px 10%;
+    padding: 50px 10% 200px 10%;
     width: 100%;
 }
 
@@ -54,6 +54,7 @@
 .quotes {
     background-color: rgba(192, 192, 192, 0.2);
     overflow: auto;
+    margin-top: 50px;
     padding: 10px 20px 10px 20px;
 }
 
@@ -93,7 +94,7 @@
 
 /*<--Resume Page*/
 .control-resume {
-    padding-top: 300px;
+    padding-top: 100px;
 }
 
 .dropdown-menu li:hover {
