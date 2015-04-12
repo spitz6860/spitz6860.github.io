@@ -1,0 +1,113 @@
+$myblue: #112C55;
+$mywhite: #FFFFF0;
+
+/*<--Global*/
+
+.container-body {
+	background-image: url('../image/background_main.jpg'); 
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	min-width: 750px;
+	min-height: 900px;
+	height: 100%;
+	width: 100%;
+}
+
+.container-main {
+	height: 100%;
+	padding: 50px 10% 200px 10%;
+	width: 100%;
+}
+
+.container-content {
+	color: $mywhite;
+	font-size: 16pt;
+	min-height: 600px;
+
+	.signature {
+		display: inline;
+		font-family: "Comic Sans", "Comic Sans MS", cursive;
+		font-size: 60px;
+		font-weight: bold;
+	}
+
+	.btn {
+		color: $myblue;
+	}
+}
+
+/*Global-->*/
+
+/*<--Menu*/
+
+.title {
+	color: $myblue;
+	font-family: cursive;
+	font-size: 35px;
+}
+.navbar {
+	background-color: $mywhite;
+	margin-bottom: 0px !important;
+	.nav {
+		span{
+			font-size: 14pt;
+			color: $myblue;
+		}
+	}
+}
+
+/*Menu-->*/
+
+/*<--Quotes Section*/
+
+.quotes {
+	background-color: rgba(192, 192, 192, 0.2);
+	overflow: auto;
+	margin-top: 50px;
+	padding: 10px 20px 10px 20px;
+
+	.text,.source {
+		color: #FFFFF0;
+		font-family: 'Comic Sans MS';
+		font-style: italic;
+	}
+}
+
+/*Quotes Section-->*/
+
+/*<--Home Page*/
+.about-me {
+	margin-top: 50px;
+	min-width: 450px;
+	width: 450px !important;
+}
+
+.my-picture {
+	background: url(../image/my_picture.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+}
+
+.interests {
+	font-family: "Comic Sans MS";
+	font-weight: bold;
+	margin-top: 50px;
+}
+
+/*Home Page-->*/
+
+/*<--Resume Page*/
+.control-resume {
+	padding-top: 100px;
+}
+
+.dropdown-menu li:hover {
+ cursor:pointer;
+}
+/*Resume Page-->*/

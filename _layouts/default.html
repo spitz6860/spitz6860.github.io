@@ -11,6 +11,27 @@
 			<!--script src="../js/handlebars-v3.0.0.js"></script-->
 			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 			<script src="../js/quotes.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$('.dropdown-menu li').click(function() {
+
+			$(this).closest('.btn-group')
+			.find('[data-bind="label"]').text($(this).text())
+			.end()
+			.children('.dropdown-toggle').dropdown('toggle');						
+		});
+
+		$('.btn-resume').click(function() {
+			var extension = $(this).closest('.btn-group')
+			.find('[data-bind="label"]').text();
+
+			window.location.href = "../doc/resume_kw" + extension;
+		});
+
+	});
+</script>
+	
 		</head>
 		<body>
 			<div class="container-body">
@@ -36,6 +57,41 @@
 					</div>
 				</nav>
 				<div class="container-main">
+<div class="container-content row">
+	<div class="control-resume col-lg-4 col-md-5 col-sm-6 text-center">
+		<h3>My Resume</h3>
+		<div class="btn-group">
+			<button type="button" class="btn btn-lg btn-default btn-resume">Download</button>
+			<div class="btn-group btn-input clearfix">
+				<button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown">
+					<span data-bind="label">.pdf</span> <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a>.pdf</a></li>
+					<li><a>.docx</a></li>
+					<li><a>.txt</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8 col-md-7 col-sm-6">
+		<h3 class="text-center">Portfolio Websites</h3>
+		<div class="row container-website text-center">
+			<div class="col-lg-4">
+				<h5>Mud Bay</h5>
+				<a href="http://www.mudbay.com"><img src="../image/mudbay.jpg"class="img-thumbnail" alt="Mud Bay" width="400px" height="300px"></a>
+			</div>
+			<div class="col-lg-4">
+				<h5>Pawn1</h5>
+				<a href="http://www.pawn1.com"><img src="../image/pawn1.jpg"class="img-thumbnail" alt="Pawn1" width="400px" height="300px"></a>
+			</div>
+			<div class="col-lg-4">
+				<h5>Bakstad Construction</h5>
+				<a href="http://www.bakstadconstruction.com"><img src="../image/bakstad.jpg"class="img-thumbnail" alt="Bakstad" width="400px" height="300px"></a>
+			</div>
+		</div>
+	</div>
+</div>
 					{{content}}
 					<div class="quotes col-md-6 col-md-offset-2">
 						<div class="text"></div>
