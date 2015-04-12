@@ -46,7 +46,7 @@
   overflow: auto;
   margin-top: 50px;
   padding: 10px 20px 10px 20px; }
-  .quotes .text, .quotes .source {
+  .quotes div {
     color: #FFFFF0;
     font-family: 'Comic Sans MS';
     font-style: italic; }
