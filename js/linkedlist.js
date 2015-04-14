@@ -16,7 +16,7 @@ var LinkedList = (function () {
 	LinkedList.prototype.append = function(val) {
 		var node = new Node(val, null);
 
-		if (this.head === null) {
+		if (!this.head) {
 			this.head = node;
 		} else {
 			current = this.head;
@@ -29,28 +29,18 @@ var LinkedList = (function () {
 	};
 
 	LinkedList.prototype.remove = function(val) {
-		if (this.head !== null) {
-			var current = this.head;
-			if (current.data === val) {
-				this.head = current.next;
-				this.length--;
+		if (this.head) {
+			if (this.head.data === val) {
+				this.head = this.head.next;
 			} else {
-				var prev = current; 
-				while(current.next !== null) {
-					if (current.data === val) {
-						prev.next = current.next;
-						this.length--;
+				current = this.head;
+				while(current && current.next) {
+					if (current.next.data === val) {
+						current.next = current.next.next;
 					}
-
-					prev = current;
 					current = current.next;
 				}
-
-				if (current.value === val) {
-					prev.next == null;
-					this.length--;
-				}
- 			}
+			}
 		}
 	};
 
@@ -61,7 +51,7 @@ var LinkedList = (function () {
 	LinkedList.prototype.toString = function() {
 		var result = '';
 
-		if (this.head !== null) {
+		if (this.head) {
 			// thank you loosely typed language
 			var current = this.head;
 			result += current.data;
@@ -75,14 +65,3 @@ var LinkedList = (function () {
 
 	return LinkedList;
 })();
-
-var list = new LinkedList();
-list.append(5);
-list.append(3);
-list.append(3);
-list.append(3);
-list.append(2);
-console.log(list.toString());
-list.remove(3);
-list.remove(5);
-console.log(list.toString());
