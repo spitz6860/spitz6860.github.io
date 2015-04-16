@@ -56,10 +56,10 @@ var LinkedList = (function () {
 		if (this.head) {
 			// thank you loosely typed language
 			var current = this.head;
-			result += current.data;
+			result += current.data + '(' + typeof current.data + ')';
 			while(current.next) {
 				current = current.next;
-				result += ' -> ' + current.data;
+				result += ' -> ' + current.data + '(' + typeof current.data + ')';
 			}
 		}
 		return result;
@@ -68,23 +68,25 @@ var LinkedList = (function () {
 	return LinkedList;
 })();
 
-testLinkedList();
+$(document).ready(function() {
+	testLinkedList();
+});
 
 function testLinkedList() {
 	var list = new LinkedList();
-	console.log("var list = new LinkedList();\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("var list = new LinkedList();\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.append('5');
-	console.log("list.append('5');\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("list.append('5');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.append(5);
-	console.log("list.append('5');\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("list.append('5');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.append('item');
-	console.log("list.append('item');\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("list.append('item');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.append(true);
-	console.log("list.append(true);\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("list.append(true);\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.remove('item');
-	console.log("list.remove('item');\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("list.remove('item');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.remove('true');
-	console.log("list.remove('true');\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("list.remove('true');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.remove('5');
-	console.log("list.remove('5');\n" + list.toString() + "\nlength: " + list.getLength());
+	$('.code-result').append("list.remove('5');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 }

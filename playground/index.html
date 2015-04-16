@@ -1,25 +1,96 @@
-	<html>
-		<head>
-			<title>Test</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="../css/main.css">
-			<link rel="stylesheet" href="../css/bootstrap.min.css">
-			<script src="../js/jquery-2.1.3.min.js"></script>
-			<script src="../js/bootstrap.min.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
-			<script src="./myController.js"></script>
-		</head>
-		<body ng-app="demoApp">
-			<div class="container-body">
+---
+layout: default
+title: Spitz - Playground
+---
 
-				<div>
-					<div class="container-body">
-						<my-searchbox search-text="theSearchText" placeholder="Please search now" used-lucky="false"></my-searchbox>
-					</div>
-				</div>
+<script src="../js/run_prettify.js"></script>
+<script src="../js/linkedlist.js"></script>
 
-				
+<div class="container-content">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#linkedlist" data-toggle="tab">Linked List</a></li>
+		<li><a href="#something" data-toggle="tab">TBD</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active row" id="linkedlist">
+			<div class="col-lg-7">
+				<pre class="prettyprint">
+var Node = (function () {
+	function Node(data, next) {
+		this.data = data;
+		this.next = next;
+	}
+	return Node;
+})();
 
+var LinkedList = (function () {
+
+	function LinkedList() {
+		this.head = null;
+		this.length = 0;
+	}
+
+	LinkedList.prototype.append = function(val) {
+		var node = new Node(val, null);
+
+		if (!this.head) {
+			this.head = node;
+		} else {
+			current = this.head;
+			while(current.next) {
+				current = current.next;
+			}
+			current.next = node;
+		}
+		this.length++;
+	};
+
+	LinkedList.prototype.remove = function(val) {
+		if (this.head) {
+			if (this.head.data === val) {
+				this.head = this.head.next;
+				this.length--;
+			} else {
+				current = this.head;
+				while(current && current.next) {
+					if (current.next.data === val) {
+						current.next = current.next.next;
+						this.length--;
+					}
+					current = current.next;
+				}
+			}
+		}
+	};
+
+	LinkedList.prototype.getLength = function() {
+		return this.length;
+	};
+
+	LinkedList.prototype.toString = function() {
+		var result = '';
+
+		if (this.head) {
+			// thank you loosely typed language
+			var current = this.head;
+			result += current.data;
+			while(current.next) {
+				current = current.next;
+				result += ' -> ' + current.data;
+			}
+		}
+		return result;
+	};
+
+	return LinkedList;
+})();
+				</pre>
 			</div>
-		</body>
-	</html>
+			<div class="col-lg-5">
+				<pre class="code-result"></pre>
+			</div>
+		</div>
+		<div class="tab-pane" id="something">
+		</div>
+	</div>
+</div>
