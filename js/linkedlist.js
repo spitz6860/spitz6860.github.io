@@ -78,7 +78,7 @@ function testLinkedList() {
 	list.append('5');
 	$('.code-result').append("list.append('5');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.append(5);
-	$('.code-result').append("list.append('5');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
+	$('.code-result').append("list.append(5);\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.append('item');
 	$('.code-result').append("list.append('item');\n" + list.toString() + "\nlength: " + list.getLength() + "\n\n");
 	list.append(true);
