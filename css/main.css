@@ -81,8 +81,9 @@
   cursor: pointer; }
 
 /*Resume Page-->*/
-.tabs-code .tab-content {
-  background-color: #FFFFF0;
-  padding: 15px; }
+.tabs-code {
+  background-color: #FFFFF0; }
+  .tabs-code .tab-content {
+    padding: 15px; }
 
 /*# sourceMappingURL=main.css.map */
