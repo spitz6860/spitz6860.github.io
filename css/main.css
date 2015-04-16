@@ -82,7 +82,8 @@
 
 /*Resume Page-->*/
 .tabs-code {
-  background-color: #FFFFF0; }
+  background-color: #FFFFF0;
+  border-radius: 4px 4px 0 0; }
   .tabs-code .tab-content {
     padding: 15px; }
 
