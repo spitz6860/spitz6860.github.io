@@ -44,9 +44,10 @@ $myblack: #010812;
 	font-family: cursive;
 	font-size: 35px;
 }
-.navbar {
+#mynavbar {
 	background-color: $mywhite;
-	margin-bottom: 0px !important;
+	border-radius: 0 !important;
+	margin-bottom: 0 !important;
 	.nav {
 		span{
 			font-size: 14pt;

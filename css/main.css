@@ -30,10 +30,11 @@
   font-family: cursive;
   font-size: 35px; }
 
-.navbar {
+#mynavbar {
   background-color: #FFFFF0;
-  margin-bottom: 0px !important; }
-  .navbar .nav span {
+  border-radius: 0 !important;
+  margin-bottom: 0 !important; }
+  #mynavbar .nav span {
     font-size: 14pt;
     color: #112C55; }
 
