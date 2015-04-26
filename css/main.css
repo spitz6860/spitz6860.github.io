@@ -68,24 +68,23 @@
     @media (max-width: 639px) {
       .about-me .signature {
         font-size: 35px; } }
-
-.my-picture {
-  background: url(../image/my_picture.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  display: inline-block;
-  width: 55px;
-  height: 55px;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px; }
-  @media (max-width: 639px) {
-    .my-picture {
-      width: 35px;
-      height: 35px;
-      border-radius: 50px;
-      -webkit-border-radius: 50px;
-      -moz-border-radius: 50px; } }
+  .about-me .my-picture {
+    background: url(../image/my_picture.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px; }
+    @media (max-width: 639px) {
+      .about-me .my-picture {
+        width: 35px;
+        height: 35px;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px; } }
 
 .interests {
   font-family: "Comic Sans MS";
