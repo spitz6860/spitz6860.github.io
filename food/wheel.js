@@ -2,9 +2,9 @@ var Wheel = function(options) {
 	var config, reder, frameMove, settle, spin, init;
 
 	var config = {
-		insideRadius: 35,
-		outsideRadius: 300,
-		position: pt(330,330),
+		insideRadius: 25,
+		outsideRadius: 250,
+		position: pt(275,275),
 		theta: 0,
 		angularVelocity: 0,
 		drag: 10,
@@ -87,21 +87,21 @@ var Wheel = function(options) {
 			var rads = (config.slices[i].size * Math.PI * 2) / config.totalSize;
 			ctx.rotate(rads / 2);
 			
-			ctx.font = '20px Roboto Slab';
+			ctx.font = '18px Roboto Slab';
 			var metrics = ctx.measureText(config.slices[i].name);
 			var textwidth = metrics.width;
 			
 			if(textwidth > config.outsideRadius - config.insideRadius - 24)
-				ctx.font = '16px Roboto Slab';
+				ctx.font = '14px Roboto Slab';
 			
 			metrics = ctx.measureText(config.slices[i].name);
 			textwidth = metrics.width;
 			if(textwidth > config.outsideRadius - config.insideRadius - 24)
-				ctx.font = '12px Roboto Slab';
+				ctx.font = '10px Roboto Slab';
 			
 			ctx.fillStyle = 'white';
 			ctx.strokeStyle = 'black';
-			var tx = config.insideRadius + 30;
+			var tx = config.insideRadius + 25;
 			var ty = 10;
 			ctx.strokeText('    ' + config.slices[i].name, tx, ty);
 			ctx.fillText('    ' + config.slices[i].name, tx, ty);
