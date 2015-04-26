@@ -25,7 +25,7 @@
   .container-content .signature {
     display: inline;
     font-family: "Comic Sans", "Comic Sans MS", cursive;
-    font-size: 60px;
+    font-size: 50px;
     min-width: 300px;
     font-weight: bold; }
     @media (max-width: 639px) {
