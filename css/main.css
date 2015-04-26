@@ -22,16 +22,6 @@
   @media (max-width: 639px) {
     .container-content {
       font-size: 14px; } }
-  .container-content .signature {
-    display: inline;
-    font-family: "Comic Sans", "Comic Sans MS", cursive;
-    font-size: 50px;
-    min-width: 450px;
-    font-weight: bold; }
-    @media (max-width: 639px) {
-      .container-content .signature {
-        font-size: 35px;
-        min-width: 280px; } }
   .container-content .btn {
     color: #112C55; }
 
@@ -65,7 +55,19 @@
 /*Quotes Section-->*/
 /*<--Home Page*/
 .about-me {
-  margin-top: 50px; }
+  margin-top: 50px;
+  min-width: 450px; }
+  @media (max-width: 639px) {
+    .about-me {
+      min-width: 280px; } }
+  .about-me .signature {
+    display: inline;
+    font-family: "Comic Sans", "Comic Sans MS", cursive;
+    font-size: 50px;
+    font-weight: bold; }
+    @media (max-width: 639px) {
+      .about-me .signature {
+        font-size: 35px; } }
 
 .my-picture {
   background: url(../image/my_picture.jpg);
