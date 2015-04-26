@@ -4,7 +4,8 @@
   background-image: url("../image/background_bloodborne.jpg");
   background-repeat: no-repeat;
   min-width: 360px;
-  min-height: 600px; }
+  min-height: 600px;
+  overflow: auto; }
 
 .container-main {
   height: 100%;
