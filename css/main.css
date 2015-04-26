@@ -3,9 +3,8 @@
   background-color: #010812;
   background-image: url("../image/background_bloodborne.jpg");
   background-repeat: no-repeat;
-  min-width: 600px;
-  min-height: 600px;
-  overflow-x: auto; }
+  min-width: 360px;
+  min-height: 600px; }
 
 .container-main {
   height: 100%;
