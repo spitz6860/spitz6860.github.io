@@ -135,6 +135,16 @@ $max-phone-width: 640px;
 .dropdown-menu li:hover {
  cursor:pointer;
 }
+
+/*Food Page-->*/
+
+#food-canvas {
+	width: 700px;
+	@include phone {
+		width: 300px;
+	}
+}
+
 /*Resume Page-->*/
 
 .tabs-code {

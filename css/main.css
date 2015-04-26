@@ -95,6 +95,13 @@
 .dropdown-menu li:hover {
   cursor: pointer; }
 
+/*Food Page-->*/
+#food-canvas {
+  width: 700px; }
+  @media (max-width: 639px) {
+    #food-canvas {
+      width: 300px; } }
+
 /*Resume Page-->*/
 .tabs-code {
   background-color: #FFFFF0;
