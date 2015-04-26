@@ -14,8 +14,7 @@
 
 .container-content {
   color: #FFFFF0;
-  font-size: 16pt;
-  min-height: 600px; }
+  font-size: 16pt; }
   @media (max-width: 639px) {
     .container-content {
       font-size: 14px; } }
