@@ -3,7 +3,7 @@
   background-color: #010812;
   background-image: url("../image/background_bloodborne.jpg");
   background-repeat: no-repeat;
-  min-width: 650px;
+  min-width: 320px;
   min-height: 600px;
   overflow: hidden; }
 
@@ -16,11 +16,17 @@
   color: #FFFFF0;
   font-size: 16pt;
   min-height: 600px; }
+  @media (max-width: 639px) {
+    .container-content {
+      font-size: 14px; } }
   .container-content .signature {
     display: inline;
     font-family: "Comic Sans", "Comic Sans MS", cursive;
     font-size: 60px;
     font-weight: bold; }
+    @media (max-width: 639px) {
+      .container-content .signature {
+        font-size: 40px; } }
   .container-content .btn {
     color: #112C55; }
 
@@ -68,6 +74,13 @@
   border-radius: 50px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px; }
+  @media (max-width: 639px) {
+    .my-picture {
+      width: 35px;
+      height: 35px;
+      border-radius: 50px;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px; } }
 
 .interests {
   font-family: "Comic Sans MS";

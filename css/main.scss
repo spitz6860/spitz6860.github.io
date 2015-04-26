@@ -2,13 +2,22 @@ $myblue: #112C55;
 $mywhite: #FFFFF0;
 $myblack: #010812;
 
+$min-phone-width: 320px;
+$max-phone-width: 640px;
+
+@mixin phone {
+  @media (max-width: #{$max-phone-width - 1px}) {
+    @content;
+  }
+}
+
 /*<--Global*/
 
 .container-body {
 	background-color: $myblack;
 	background-image: url('../image/background_bloodborne.jpg'); 
 	background-repeat: no-repeat;
-	min-width: 650px;
+	min-width: 320px;
 	min-height: 600px;
 	overflow: hidden;
 }
@@ -22,12 +31,20 @@ $myblack: #010812;
 .container-content {
 	color: $mywhite;
 	font-size: 16pt;
+	@include phone {
+		font-size: 14px;
+	}
 	min-height: 600px;
 
 	.signature {
 		display: inline;
 		font-family: "Comic Sans", "Comic Sans MS", cursive;
 		font-size: 60px;
+
+		@include phone {
+			font-size: 40px;
+		}
+
 		font-weight: bold;
 	}
 
@@ -93,6 +110,13 @@ $myblack: #010812;
 	border-radius: 50px;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
+	@include phone {
+		width: 35px;
+		height: 35px;
+		border-radius: 50px;
+		-webkit-border-radius: 50px;
+		-moz-border-radius: 50px;
+	}
 }
 
 .interests {
