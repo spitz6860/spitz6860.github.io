@@ -43,9 +43,10 @@ $max-phone-width: 640px;
 		display: inline;
 		font-family: "Comic Sans", "Comic Sans MS", cursive;
 		font-size: 50px;
-		min-width: 300px;
+		min-width: 450px;
 		@include phone {
 			font-size: 35px;
+			min-width: 280px;
 		}
 
 		font-weight: bold;
