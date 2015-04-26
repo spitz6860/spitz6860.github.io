@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   min-width: 400px;
   min-height: 600px;
-  overflow: auto; }
+  overflow-x: scroll; }
 
 .container-main {
   height: 100%;
