@@ -11,10 +11,14 @@
   height: 100%;
   padding: 50px 10% 200px 10%;
   width: 100%; }
+  @media (max-width: 639px) {
+    .container-main {
+      padding: 25px 10% 50px 10%; } }
 
 .container-content {
   color: #FFFFF0;
-  font-size: 16pt; }
+  font-size: 16pt;
+  min-height: 600px; }
   @media (max-width: 639px) {
     .container-content {
       font-size: 14px; } }
