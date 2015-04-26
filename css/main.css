@@ -29,7 +29,7 @@
     font-weight: bold; }
     @media (max-width: 639px) {
       .container-content .signature {
-        font-size: 40px; } }
+        font-size: 35px; } }
   .container-content .btn {
     color: #112C55; }
 
@@ -63,9 +63,7 @@
 /*Quotes Section-->*/
 /*<--Home Page*/
 .about-me {
-  margin-top: 50px;
-  min-width: 450px;
-  width: 450px !important; }
+  margin-top: 50px; }
 
 .my-picture {
   background: url(../image/my_picture.jpg);
@@ -99,10 +97,10 @@
   cursor: pointer; }
 
 /*Food Page-->*/
-#food-canvas {
+#canvans-food {
   width: 700px; }
   @media (max-width: 639px) {
-    #food-canvas {
+    #canvans-food {
       width: 300px; } }
 
 /*Resume Page-->*/
