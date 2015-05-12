@@ -36,6 +36,7 @@
 						 		});
 						 	stockRequest.success(function(data) {
 						 		$scope.mystock = data.query.results.quote;
+						 		$scope.$apply();
 						 	});
 					 	} else {
 					 		$scope.error = 'Invalid param for getData function';
