@@ -17,10 +17,12 @@
 				var stockApp = angular.module('StockApp', ['ui.bootstrap']);
 
 
-				stockApp.controller('StockController', function($scope, $http) {
-					var tickers = ['BAC', 'CPA'];
-					
+				stockApp.controller('StockController', function($scope, $http, $q) {
+					var tickers = ['BAC', 'CPA', 'DDD', 'LINE', 'MOBI', 'NOK'];
+					var deferred = $q.defer();
+
 					getData(tickers);
+
 					function getData(ticker) {
 						if (ticker.length > 0) {
 							var queryString = ticker.join(',');
@@ -35,9 +37,9 @@
 						 			}
 						 		});
 						 	stockRequest.success(function(data) {
-						 		console.log(data);
-						 		$scope.mystock = data.query.results.quote;
-						 		console.log($scope.mystock)
+						 		$timeout(funcion(){
+						 			$scope.mystock = data.query.results.quote;
+						 		}, 0);
 						 	});
 					 	} else {
 					 		$scope.error = 'Invalid param for getData function';
@@ -74,8 +76,8 @@
 					<!--{{content}}-->
 					<div ng-app="StockApp" class="container-content container-carousel">
 						<div ng-controller="StockController">
-
-								<div ng-repeat="stock in mystock" active="slide.active">
+							<carousel>
+								<slide ng-repeat="stock in mystock" active="slide.active">
 									<div class="container-slide">
 										<div>
 											<h2>{{stock.symbol}}</h4>
@@ -129,8 +131,8 @@
 											</table>
 										</div>	
 									</div>								
-								</div>
-
+								</slide>
+							</carousel>
 						</div>
 					</div>
 					<div class="quotes col-md-6 col-md-offset-3">
