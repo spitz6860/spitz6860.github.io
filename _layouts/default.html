@@ -17,7 +17,7 @@
 				var stockApp = angular.module('StockApp', ['ui.bootstrap']);
 
 
-				stockApp.controller('StockController', function($scope, $http) {
+				stockApp.controller('StockController', function($scope, $http, $timeout) {
 					var tickers = ['BAC', 'CPA', 'DDD', 'LINE', 'MOBI', 'NOK'];
 					
 					getData(tickers);
@@ -33,8 +33,10 @@
 					 				env: "http://datatables.org/alltables.env",
 					 				callback: "JSON_CALLBACK"
 					 			}
-					 		}).success(function(data) {
-					 			$scope.mystock = data.query.results.quote;
+					 		}).then(function(data) {
+					 			$timeout(function(){
+									$scope.mystock = data.data.query.results.quote;
+								});			 			
 					 		});
 					 	} else {
 					 		$scope.error = 'Invalid param for getData function';
