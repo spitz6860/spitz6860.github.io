@@ -19,10 +19,8 @@ stockApp.controller('StockController', function($scope, $http) {
 		 			}
 		 		}
 		 	).success(function(data) {
-					$scope.$apply(function(){
-						$scope.mystock = data.query.results.quote;
-					});
-				}
+		 			$scope.mystock = data.query.results.quote;
+		 		}
 		 	).error(function(data) {
 		 			$scope.error = 'No Data from the Request';
 		 		}
