@@ -74,6 +74,7 @@
 					<!--{{content}}-->
 					<div ng-app="StockApp" class="container-content container-carousel">
 						<div ng-controller="StockController">
+							{{mystock}}
 							<carousel>
 								<slide ng-repeat="stock in mystock" active="slide.active">
 									<div class="container-slide">
