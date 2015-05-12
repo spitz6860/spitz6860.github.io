@@ -9,7 +9,7 @@ stockApp.controller('StockController', function($scope, $http) {
 		if (ticker.length > 0) {
 			var queryString = ticker.join(',');
 			$scope.mystock = [];
-		 	var stockRequest =  $http.jsonp("https://query.yahooapis.com/v1/public/yql", 
+		 	$http.jsonp("https://query.yahooapis.com/v1/public/yql", 
 		 		{
 		 			params: {
 		 				q: "select * from yahoo.finance.quotes where symbol in ('" + queryString + "') ",
@@ -17,8 +17,7 @@ stockApp.controller('StockController', function($scope, $http) {
 		 				env: "http://datatables.org/alltables.env",
 		 				callback: "JSON_CALLBACK"
 		 			}
-		 		});
-		 	stockRequest.success(function(data) {
+		 		}).success(function(data) {
 		 		$scope.mystock = data.query.results.quote;
 		 	});
 	 	} else {
