@@ -11,37 +11,7 @@
 			<script src="../js/angular.min.js"></script>
 			<script src="../js/moment.js"></script>
 			<script src="../js/quotes.js"></script>
-			<script type="text/javascript">
-				var stockApp = angular.module('StockApp', []);
-
-
-				stockApp.controller('StockController', function($scope, $http) {
-					var tickers = ['MOBI','DDD','BAC','LINN'];
-					$scope.mystock = 'Hi';
-
-					//getData(tickers);
-					function getData(ticker) {
-						if (ticker.length > 0) {
-							var queryString = ticker.join(',');
-						
-						 	var stockRequest =  $http.jsonp("https://query.yahooapis.com/v1/public/yql", 
-						 		{
-						 			params: {
-						 				q: "select * from yahoo.finance.quotes where symbol in ('" + queryString + "') ",
-						 				format: "json",
-						 				env: "http://datatables.org/alltables.env",
-						 				callback: "JSON_CALLBACK"
-						 			}
-						 		});
-						 	stockRequest.success(function(data) {
-						 		$scope.mystock = data.query.results;
-						 	});
-					 	} else {
-					 		$scope.error = 'Invalid param for getData function';
-					 	}
-					}
-				});
-			</script>
+			<script src="../js/ui-bootstrap-tpls-0.13.0.min.js"></script>
 		</head>
 		<body>
 			<div class="container-body">
@@ -60,6 +30,7 @@
 							<ul class="nav navbar-nav navbar-right">
 								<li class=""><a href="../index.html"><span>Home</span></a></li>
 								<li class=""><a href="../food"><span>Food</span></a></li>
+								<li class=""><a href="../money"><span>Money</span></a></li>
 								<li class=""><a href="../cv"><span>Resume</span></a></li>
 								<li class=""><a href="../playground"><span>Playground</span></a></li>
 							</ul>
@@ -67,8 +38,7 @@
 					</div>
 				</nav>
 				<div class="container-main">
-					{{content}}
-					<!--div ng-app="StockApp" ng-controller="StockController">{{mystock}}</div-->
+					<!--{{content}}-->
 					<div class="quotes col-md-6 col-md-offset-3">
 						<div class="text"></div>
 						<div class="source pull-right"></div>
