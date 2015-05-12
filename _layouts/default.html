@@ -36,7 +36,7 @@
 					 		}).then(function(data) {
 					 			$timeout(function(){
 									$scope.mystock = data.data.query.results.quote;
-								});			 			
+								},5000);			 			
 					 		});
 					 	} else {
 					 		$scope.error = 'Invalid param for getData function';
