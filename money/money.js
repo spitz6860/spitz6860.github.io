@@ -17,9 +17,14 @@ stockApp.controller('StockController', function($scope, $http) {
 		 				env: "http://datatables.org/alltables.env",
 		 				callback: "JSON_CALLBACK"
 		 			}
-		 		}).success(function(data) {
-		 		$scope.mystock = data.query.results.quote;
-		 	});
+		 		}
+		 	).success(function(data) {
+		 			$scope.mystock = data.query.results.quote;
+		 		}
+		 	).error(function(data) {
+		 			$scope.error = 'No Data from the Request';
+		 		}
+		 	);
 	 	} else {
 	 		$scope.error = 'Invalid param for getData function';
 	 	}
