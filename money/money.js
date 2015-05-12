@@ -8,7 +8,7 @@ stockApp.controller('StockController', function($scope, $http) {
 	function getData(ticker) {
 		if (ticker.length > 0) {
 			var queryString = ticker.join(',');
-		
+			$scope.mystock = [];
 		 	var stockRequest =  $http.jsonp("https://query.yahooapis.com/v1/public/yql", 
 		 		{
 		 			params: {
