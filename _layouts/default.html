@@ -20,27 +20,6 @@
 				stockApp.controller('StockController', function($scope, $http) {
 					var tickers = ['BAC', 'CPA', 'DDD', 'LINE', 'MOBI', 'NOK'];
 					$scope.fuck = 'fuckyou';
-					//getData(tickers);
-					function getData(ticker) {
-						if (ticker.length > 0) {
-							var queryString = ticker.join(',');
-						
-						 	var stockRequest =  $http.jsonp("https://query.yahooapis.com/v1/public/yql", 
-						 		{
-						 			params: {
-						 				q: "select * from yahoo.finance.quotes where symbol in ('" + queryString + "') ",
-						 				format: "json",
-						 				env: "http://datatables.org/alltables.env",
-						 				callback: "JSON_CALLBACK"
-						 			}
-						 		});
-						 	stockRequest.success(function(data) {
-						 		$scope.mystock = data.query.results.quote;
-						 	});
-					 	} else {
-					 		$scope.error = 'Invalid param for getData function';
-					 	}
-					}
 				});
 			</script>
 		</head>
@@ -73,63 +52,6 @@
 					<div ng-app="StockApp" class="container-content container-carousel">
 						<div ng-controller="StockController">
 							{{fuck}}
-							<carousel>
-								<slide ng-repeat="stock in mystock" active="slide.active">
-									<div class="container-slide">
-										<div>
-											<h2>{{stock.symbol}}</h4>
-											<p>{{stock.Name}}</p>
-										</div>
-										<div>
-											<table class="table borderless stock-detail">
-												<thead>
-													<tr>
-														<th>
-															<label>Last Price</label>
-															<p>{{stock.LastTradePriceOnly}}</p>
-														</th>
-														<th>
-															<label>Today's Change</label>
-															<p>{{stock.Change}} ({{stock.ChangeinPercent}})</p>
-														</th>
-														<th>
-															<label>Volume</label>
-															<p>{{stock.Volume}}</p>
-														</th>
-													<tr>
-													<tbody>
-														<tr>
-															<td></td>
-															<td></td>
-															<td></td>
-														</tr>
-														<tr>
-															<td class="text-right">Price Open</td>
-															<td></td>
-															<td class="text-left">{{stock.Open}}</td>
-														</tr>
-														<tr>
-															<td class="text-right">Previous Close</td>
-															<td></td>
-															<td class="text-left">{{stock.PreviousClose}}</td>
-														</tr>
-														<tr>
-															<td class="text-right">Day Range</td>
-															<td></td>
-															<td class="text-left">{{stock.DaysRange}}</td>
-														</tr>
-														<tr>
-															<td class="text-right">Year Range</td>
-															<td></td>
-															<td class="text-left">{{stock.YearRange}}</td>
-														</tr>
-													</tbody>
-												</thead>
-											</table>
-										</div>	
-									</div>								
-								</slide>
-							</carousel>
 						</div>
 					</div>
 					<div class="quotes col-md-6 col-md-offset-3">
