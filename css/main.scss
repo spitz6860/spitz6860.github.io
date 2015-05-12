@@ -24,7 +24,7 @@ $max-phone-width: 640px;
 
 .container-main {
 	height: 100%;
-	padding: 50px 10% 200px 10%;
+	padding: 50px 50px 200px 50px;
 	@include phone {
 		padding: 25px 10% 50px 10%;
 	}	
@@ -139,7 +139,10 @@ $max-phone-width: 640px;
  cursor:pointer;
 }
 
-/*Food Page-->*/
+/*Resume Page-->*/
+
+
+/*<--Food Page*/
 
 #canvas-food {
 	width: 700px;
@@ -150,7 +153,9 @@ $max-phone-width: 640px;
 	}
 }
 
-/*Resume Page-->*/
+/*Food Page-->*/
+
+/*<--Play Ground Page*/
 
 .tabs-code {
 	background-color: $mywhite;
@@ -159,3 +164,34 @@ $max-phone-width: 640px;
 		padding: 15px;
 	}
 }
+
+/*Play Ground Page-->*/
+
+/*<--Stocks Page*/
+
+.container-carousel {
+	margin-left: -50px;
+	margin-right: -50px;
+	position: static;
+	.container-slide {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	.carousel-inner {
+		height: 600px;
+		table.stock-detail {
+			th {
+				text-align: center;
+			}
+			tbody {
+				margin-left: 20%;
+				margin-right: 20%;
+				td {
+					border-top: none !important;
+				}
+			}
+		}
+	}
+}
+
+/*Stocks Page-->*/

@@ -9,7 +9,7 @@
 
 .container-main {
   height: 100%;
-  padding: 50px 10% 200px 10%;
+  padding: 50px 50px 200px 50px;
   width: 100%; }
   @media (max-width: 639px) {
     .container-main {
@@ -99,7 +99,8 @@
 .dropdown-menu li:hover {
   cursor: pointer; }
 
-/*Food Page-->*/
+/*Resume Page-->*/
+/*<--Food Page*/
 #canvas-food {
   width: 700px;
   height: 700px; }
@@ -108,11 +109,33 @@
       width: 300px;
       height: 300px; } }
 
-/*Resume Page-->*/
+/*Food Page-->*/
+/*<--Play Ground Page*/
 .tabs-code {
   background-color: #FFFFF0;
   border-radius: 4px; }
   .tabs-code .tab-content {
     padding: 15px; }
+
+/*Play Ground Page-->*/
+/*<--Stocks Page*/
+.container-carousel {
+  margin-left: -50px;
+  margin-right: -50px;
+  position: static; }
+  .container-carousel .container-slide {
+    margin-left: 10%;
+    margin-right: 10%; }
+  .container-carousel .carousel-inner {
+    height: 600px; }
+    .container-carousel .carousel-inner table.stock-detail th {
+      text-align: center; }
+    .container-carousel .carousel-inner table.stock-detail tbody {
+      margin-left: 20%;
+      margin-right: 20%; }
+      .container-carousel .carousel-inner table.stock-detail tbody td {
+        border-top: none !important; }
+
+/*Stocks Page-->*/
 
 /*# sourceMappingURL=main.css.map */

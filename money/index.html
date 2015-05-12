@@ -1,0 +1,69 @@
+---
+layout: default
+title: Spitz - Money
+---
+<script src="../js/angular.min.js"></script>
+<script src="../js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="./money.js"></script>
+
+<div ng-app="StockApp" class="container-content container-carousel">
+	<div ng-controller="StockController">
+		<carousel>
+			<slide ng-repeat="stock in mystock" active="slide.active">
+				<div class="container-slide">
+					<div>
+						<h2>{{stock.symbol}}</h4>
+						<p>{{stock.Name}}</p>
+					</div>
+					<div>
+						<table class="table borderless stock-detail">
+							<thead>
+								<tr>
+									<th>
+										<label>Last Price</label>
+										<p>{{stock.LastTradePriceOnly}}</p>
+									</th>
+									<th>
+										<label>Today's Change</label>
+										<p>{{stock.Change}} ({{stock.ChangeinPercent}})</p>
+									</th>
+									<th>
+										<label>Volume</label>
+										<p>{{stock.Volume}}</p>
+									</th>
+								<tr>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="text-right">Price Open</td>
+										<td></td>
+										<td class="text-left">{{stock.Open}}</td>
+									</tr>
+									<tr>
+										<td class="text-right">Previous Close</td>
+										<td></td>
+										<td class="text-left">{{stock.PreviousClose}}</td>
+									</tr>
+									<tr>
+										<td class="text-right">Day Range</td>
+										<td></td>
+										<td class="text-left">{{stock.DaysRange}}</td>
+									</tr>
+									<tr>
+										<td class="text-right">Year Range</td>
+										<td></td>
+										<td class="text-left">{{stock.YearRange}}</td>
+									</tr>
+								</tbody>
+							</thead>
+						</table>
+					</div>	
+				</div>								
+			</slide>
+		</carousel>
+	</div>
+</div>
