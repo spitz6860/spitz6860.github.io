@@ -17,9 +17,10 @@
 				var stockApp = angular.module('StockApp', ['ui.bootstrap']);
 
 
-				stockApp.controller('StockController', function($scope, $http) {
+				stockApp.controller('StockController', function($scope, $http, $timeout) {
 					var tickers = ['BAC', 'CPA', 'DDD'];
-					
+					$scope.mystock = [];
+
 					getData(tickers);
 					function getData(ticker) {
 						if (ticker.length > 0) {
@@ -35,8 +36,9 @@
 						 			}
 						 		});
 						 	stockRequest.success(function(data) {
-						 		$scope.mystock = data.query.results.quote;
-
+						 		$timeout(function() {
+						 			$scope.mystock = data.query.results.quote;
+						 		}, 0);
 						 	});
 					 	} else {
 					 		$scope.error = 'Invalid param for getData function';
