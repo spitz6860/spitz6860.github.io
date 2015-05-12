@@ -1,5 +1,10 @@
 var stockApp = angular.module('StockApp', ['ui.bootstrap']);
 
+stockApp.config([
+  '$interpolateProvider', function($interpolateProvider) {
+    return $interpolateProvider.startSymbol('{(').endSymbol(')}');
+  }
+]);
 
 stockApp.controller('StockController', function($scope, $http) {
 	var tickers = ['BAC', 'CPA', 'DDD', 'LINE', 'MOBI', 'NOK'];

@@ -12,16 +12,6 @@
 			<script src="../js/moment.js"></script>
 			<script src="../js/quotes.js"></script>
 			<script src="../js/ui-bootstrap-tpls-0.13.0.min.js"></script>
-			
-			<script type="text/javascript">
-				var stockApp = angular.module('StockApp', ['ui.bootstrap']);
-
-
-				stockApp.controller('StockController', function($scope, $http) {
-					var tickers = ['BAC', 'CPA', 'DDD', 'LINE', 'MOBI', 'NOK'];
-					$scope.fuck = 'fuckyou';
-				});
-			</script>
 		</head>
 		<body>
 			<div class="container-body">
@@ -48,12 +38,7 @@
 					</div>
 				</nav>
 				<div class="container-main">
-					<!--{{content}}-->
-					<div ng-app="StockApp" class="container-content container-carousel">
-						<div ng-controller="StockController">
-							{{fuck}}
-						</div>
-					</div>
+					{{content}}
 					<div class="quotes col-md-6 col-md-offset-3">
 						<div class="text"></div>
 						<div class="source pull-right"></div>

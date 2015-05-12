@@ -11,8 +11,8 @@ title: Spitz - Money
 			<slide ng-repeat="stock in mystock" active="slide.active">
 				<div class="container-slide">
 					<div>
-						<h2>{{stock.symbol}}</h4>
-						<p>{{stock.Name}}</p>
+						<h2>{(stock.symbol)}</h4>
+						<p>{(stock.Name)}</p>
 					</div>
 					<div>
 						<table class="table borderless stock-detail">
@@ -20,15 +20,15 @@ title: Spitz - Money
 								<tr>
 									<th>
 										<label>Last Price</label>
-										<p>{{stock.LastTradePriceOnly}}</p>
+										<p>{(stock.LastTradePriceOnly)}</p>
 									</th>
 									<th>
 										<label>Today's Change</label>
-										<p>{{stock.Change}} ({{stock.ChangeinPercent}})</p>
+										<p>{(stock.Change)} ({(stock.ChangeinPercent)})</p>
 									</th>
 									<th>
 										<label>Volume</label>
-										<p>{{stock.Volume}}</p>
+										<p>{(stock.Volume)}</p>
 									</th>
 								<tr>
 								<tbody>
@@ -40,22 +40,22 @@ title: Spitz - Money
 									<tr>
 										<td class="text-right">Price Open</td>
 										<td></td>
-										<td class="text-left">{{stock.Open}}</td>
+										<td class="text-left">{(stock.Open)}</td>
 									</tr>
 									<tr>
 										<td class="text-right">Previous Close</td>
 										<td></td>
-										<td class="text-left">{{stock.PreviousClose}}</td>
+										<td class="text-left">{(stock.PreviousClose)}</td>
 									</tr>
 									<tr>
 										<td class="text-right">Day Range</td>
 										<td></td>
-										<td class="text-left">{{stock.DaysRange}}</td>
+										<td class="text-left">{(stock.DaysRange)}</td>
 									</tr>
 									<tr>
 										<td class="text-right">Year Range</td>
 										<td></td>
-										<td class="text-left">{{stock.YearRange}}</td>
+										<td class="text-left">{(stock.YearRange)}</td>
 									</tr>
 								</tbody>
 							</thead>
