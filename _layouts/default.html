@@ -35,6 +35,7 @@
 						 			}
 						 		});
 						 	stockRequest.success(function(data) {
+						 		console.log(data);
 						 		$.each(data.query.results.quote, function(k ,v) {
 						 			$scope.mystock.push(v);
 						 		});
