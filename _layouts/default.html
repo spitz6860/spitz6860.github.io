@@ -17,12 +17,10 @@
 				var stockApp = angular.module('StockApp', ['ui.bootstrap']);
 
 
-				stockApp.controller('StockController', function($scope, $http, $q) {
+				stockApp.controller('StockController', function($scope, $http) {
 					var tickers = ['BAC', 'CPA', 'DDD', 'LINE', 'MOBI', 'NOK'];
-					var deferred = $q.defer();
-
+					$scope.mystock = [];
 					getData(tickers);
-
 					function getData(ticker) {
 						if (ticker.length > 0) {
 							var queryString = ticker.join(',');
@@ -37,9 +35,9 @@
 						 			}
 						 		});
 						 	stockRequest.success(function(data) {
-						 		$timeout(funcion(){
-						 			$scope.mystock = data.query.results.quote;
-						 		}, 0);
+						 		$.each(data.query.results.quote, function(k ,v) {
+						 			$scope.mystock.push(v);
+						 		});
 						 	});
 					 	} else {
 					 		$scope.error = 'Invalid param for getData function';
