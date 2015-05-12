@@ -18,7 +18,7 @@
 
 
 				stockApp.controller('StockController', function($scope, $http) {
-					var tickers = ['BAC', 'CPA', 'DDD', 'LINE', 'MOBI', 'NOK'];
+					var tickers = ['BAC', 'CPA', 'DDD'];
 					$scope.mystock = [];
 					getData(tickers);
 					function getData(ticker) {
@@ -35,7 +35,6 @@
 						 			}
 						 		});
 						 	stockRequest.success(function(data) {
-						 		console.log(data);
 						 		$.each(data.query.results.quote, function(k ,v) {
 						 			$scope.mystock.push(v);
 						 		});
