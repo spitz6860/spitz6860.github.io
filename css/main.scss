@@ -5,6 +5,16 @@ $myblack: #010812;
 $min-phone-width: 320px;
 $max-phone-width: 640px;
 
+@mixin gradient($from-color, $to-color) {
+    background-color: mix($from-color, $to-color); /* Fallback */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from-color), to($to-color));
+    background-image: -webkit-linear-gradient(top, $from-color, $to-color); 
+    background-image:    -moz-linear-gradient(top, $from-color, $to-color);
+    background-image:     -ms-linear-gradient(top, $from-color, $to-color);
+    background-image:      -o-linear-gradient(top, $from-color, $to-color);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$from-color}', EndColorStr='#{$to-color}')";
+}
+
 @mixin phone {
   @media (max-width: #{$max-phone-width - 1px}) {
     @content;
@@ -54,13 +64,16 @@ $max-phone-width: 640px;
 	font-size: 35px;
 }
 #mynavbar {
-	background-color: $mywhite;
+	@include gradient(#f9f9fb, #e9ecf1);
 	border-radius: 0 !important;
 	margin-bottom: 0 !important;
 	.nav {
 		span{
 			font-size: 14pt;
 			color: $myblue;
+		}
+		li:hover {
+			background-color: #e9ecf1
 		}
 	}
 }

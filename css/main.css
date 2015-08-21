@@ -33,12 +33,21 @@
   font-size: 35px; }
 
 #mynavbar {
-  background-color: #FFFFF0;
+  background-color: #f1f3f6;
+  /* Fallback */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9fb), to(#e9ecf1));
+  background-image: -webkit-linear-gradient(top, #f9f9fb, #e9ecf1);
+  background-image: -moz-linear-gradient(top, #f9f9fb, #e9ecf1);
+  background-image: -ms-linear-gradient(top, #f9f9fb, #e9ecf1);
+  background-image: -o-linear-gradient(top, #f9f9fb, #e9ecf1);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#f9f9fb', EndColorStr='#e9ecf1')";
   border-radius: 0 !important;
   margin-bottom: 0 !important; }
   #mynavbar .nav span {
     font-size: 14pt;
     color: #112C55; }
+  #mynavbar .nav li:hover {
+    background-color: #e9ecf1; }
 
 /*Menu-->*/
 /*<--Quotes Section*/
