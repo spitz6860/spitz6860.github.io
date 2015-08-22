@@ -1,8 +1,12 @@
 /*<--Global*/
+html, body {
+  height: 100%; }
+
 .container-body {
   background-color: #010812;
   background-image: url("../image/background_bloodborne.jpg");
   background-repeat: no-repeat;
+  height: 100%;
   min-width: 320px;
   min-height: 600px;
   overflow: hidden; }
