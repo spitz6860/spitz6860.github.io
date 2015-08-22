@@ -8,8 +8,7 @@ html, body {
   background-repeat: no-repeat;
   height: 100%;
   min-width: 320px;
-  min-height: 600px;
-  overflow: hidden; }
+  min-height: 600px; }
 
 .container-main {
   height: 100%;
