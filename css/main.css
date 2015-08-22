@@ -20,7 +20,7 @@ html, body {
       padding: 25px 10% 50px 10%; } }
 
 .container-content {
-  color: #FFFFF0;
+  color: #f9f9fb;
   font-size: 16pt;
   min-height: 600px; }
   @media (max-width: 639px) {
@@ -125,7 +125,7 @@ html, body {
 /*Food Page-->*/
 /*<--Play Ground Page*/
 .tabs-code {
-  background-color: #FFFFF0;
+  background-color: #f9f9fb;
   border-radius: 4px; }
   .tabs-code .tab-content {
     padding: 15px; }
